@@ -1,0 +1,194 @@
+/* Custom styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+#side-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 10;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+#side-panel.hidden {
+  transform: translateX(-100%);
+}
+#toggle-panel {
+  position: absolute;
+  top: 10px;
+  left: 260px;
+  background: #007bff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 20;
+  color: #fff;
+  font-size: 16px;
+}
+#toggle-panel.hidden {
+  left: 10px;
+}
+#graph-area {
+  position: absolute;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  height: 100%;
+  overflow: hidden;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+#graph-area.full-width {
+  left: 0;
+  width: 100%;
+}
+/* Sidebar styles */
+.sidebar-section {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.sidebar-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.sidebar-section-content {
+  display: block;
+}
+.sidebar-section-content.hidden {
+  display: none;
+}
+.sidebar-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+.sidebar-section input[type="file"],
+.sidebar-section input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.sidebar-button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.sidebar-button.red {
+  background-color: #dc3545;
+}
+.sidebar-button.green {
+  background-color: #28a745;
+}
+/* Modal styles */
+#modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 30;
+}
+.modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 5px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* Graph styles */
+.link-line {
+  stroke: #999;
+  stroke-width: 2px;
+  cursor: pointer;
+  fill: none;
+}
+.node circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+.node text {
+  font-size: 12px;
+  pointer-events: none;
+}
+.org-node rect {
+  fill: #fff;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+.org-node text {
+  font-size: 12px;
+  pointer-events: none;
+}
+.link-label-box {
+  fill: #e0e0e0;
+  stroke: #999;
+  stroke-width: 1;
+  cursor: pointer;
+}
+.link-label-text {
+  font-size: 10px;
+  pointer-events: none;
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+/* Table styles */
+#table-container {
+    height: 100%; /* Full height to allow scrolling */
+    overflow: auto; /* Enable scrolling */
+  }
+  
+  #data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: small;
+  }
+  
+  #data-table th,
+  #data-table td {
+    border: 1px solid #ccc;
+    padding: 2px;
+    text-align: left;
+  }
+  
+  #data-table th {
+    justify-content: center;
+    background-color: #f9f9f9;
+    position: sticky; /* Fix the header */
+    top: 0;
+    z-index: 1;
+  }
+  

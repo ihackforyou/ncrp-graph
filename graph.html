@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Transaction Trail Visualization System</title>
+    <!-- D3.js और PapaParse को शामिल करें -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Include dagre-d3 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre-d3/0.6.4/dagre-d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.1/papaparse.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- टॉगल पैनल बटन -->
+    <button id="toggle-panel">☰</button>
+    <!-- बाएँ साइड पैनल -->
+    <div id="side-panel">
+      <!-- फ़ाइल अपलोड -->
+      <div class="sidebar-section">
+        <h2>Upload CSV File</h2>
+        <div class="sidebar-section-content active">
+          <label for="csv-file">Choose a CSV file:</label>
+          <input type="file" id="csv-file" name="csv-file" accept=".csv" />
+        </div>
+      </div>
+      <!-- लेयर फ़िल्टर चेकबॉक्स -->
+      <div class="sidebar-section">
+        <h2 id="layers-toggle">Filter by Layers &#9660;</h2>
+        <div class="sidebar-section-content" id="layer-filters">
+          <!-- डायनामिकली जेनरेटेड चेकबॉक्स -->
+        </div>
+      </div>
+      <!-- बटन -->
+      <div class="sidebar-section">
+        <h2>Actions</h2>
+        <div class="sidebar-section-content active">
+          <button id="expand-all" class="sidebar-button">Expand All</button>
+          <button id="collapse-all" class="sidebar-button">Collapse All</button>
+          <button id="reset-graph" class="sidebar-button red">
+            Reset Graph
+          </button>
+          <button id="org-chart" class="sidebar-button green">
+            Organization Chart
+          </button>
+          <button id="export-graph" class="sidebar-button green">
+            Export Graph
+          </button>
+          <button id="show-table" class="sidebar-button">Show Table</button>
+        </div>
+      </div>
+      <!-- सर्च -->
+      <div class="sidebar-section">
+        <h2>Search Nodes</h2>
+        <div class="sidebar-section-content active">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by Account or Txn ID"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- मुख्य ग्राफ़ एरिया -->
+    <div id="graph-area">
+      <!-- टेबल एरिया -->
+      <div id="table-container" style="display: none; overflow: auto">
+        <table id="data-table">
+          <!-- टेबल को डायनामिकली भरा जाएगा -->
+        </table>
+      </div>
+      <!-- ग्राफ़ के लिए SVG -->
+      <svg id="graph-svg" width="100%" height="100%"></svg>
+    </div>
+    <!-- मोडल कंटेनर -->
+    <div id="modal-container"></div>
+    <!-- कस्टम जावास्क्रिप्ट को शामिल करें -->
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
